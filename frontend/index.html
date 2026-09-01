@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Scholar Hub — Rwanda & East Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@600;700&family=Finger+Paint&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <div class="brand"><div class="brand-mark"></div>Scholar Hub</div>
+    <ul class="nav-links">
+      <li data-target="home">Home</li>
+      <li data-target="apply">Apply</li>
+      <li data-target="universities">Find</li>
+      <li data-target="scholarships">Scholarships</li>
+      <li class="nav-more">
+        More ▾
+        <ul class="nav-dropdown">
+          <li data-target="profile">My Profile</li>
+          <li data-target="mentors">Mentors</li>
+          <li data-target="vault">Vault</li>
+          <li data-target="track">Track</li>
+        </ul>
+      </li>
+      <li data-target="about">About</li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="btn btn-ghost" data-target="login">Log In</button>
+    <button class="btn btn-solid" data-target="login">Sign Up</button>
+  </div>
+</nav>
+<div class="imigongo-strip"></div>
+
+<!-- HOME -->
+<section class="page active" id="home">
+  <div class="hook-banner">
+    <h2>Not sure how to fund your next step in education?</h2>
+    <p>Whether you just finished high school or already hold a bachelor's degree, the scholarships and loans you qualify for are probably out there — we'll help you find them.</p>
+  </div>
+
+  <div class="hero">
+    <div class="eyebrow">Built for Rwanda & East Africa</div>
+    <h1>Welcome to <span>Scholar Hub</span></h1>
+    <p class="lede">Every scholarship and university opportunity available to Rwandan and East African students — in one place, matched to who you are, and verified so you can trust it.</p>
+    <div class="hero-ctas">
+      <button class="btn btn-solid btn-lg" data-target="scholarships">Browse Scholarships</button>
+      <button class="btn btn-outline-dark btn-lg" data-target="universities">Explore Universities</button>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b id="statSch">0</b><span>Scholarships listed</span></div>
+      <div class="stat"><b id="statUni">0</b><span>Universities covered</span></div>
+      <div class="stat"><b id="statCountry">0</b><span>Countries reached</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <h2>How Scholar Hub works</h2>
+      <p>Three steps between a student and the funding they've already earned but never heard about.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-num">01 · Discover</div>
+        <h3>See what's actually out there</h3>
+        <p>Government loans, NGO scholarships, and university bursaries — aggregated in one searchable place, most of it invisible anywhere else.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02 · Match</div>
+        <h3>Know it applies to you</h3>
+        <p>Every scholarship is linked to the exact universities and programs it's valid for — no more wasted applications.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03 · Apply</div>
+        <h3>Apply with confidence</h3>
+        <p>Verified listings, direct application links, and a profile that carries your details from one form to the next.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="partners-wrap">
+    <div class="partners-head">
+      <h2>Trusted by organizations across the region</h2>
+      <p>Illustrative partner network — final partnerships to be confirmed.</p>
+    </div>
+    <div class="partner-float-row">
+      <div class="partner-logo">Kivu Trust</div>
+      <div class="partner-logo">Umoja Fund</div>
+      <div class="partner-logo">Twiga Capital</div>
+      <div class="partner-logo">Amahoro Group</div>
+      <div class="partner-logo">Nyungwe Labs</div>
+      <div class="partner-logo">Virunga Works</div>
+    </div>
+
+    <div class="partners-head" style="margin-top:56px;">
+      <h2>Apply directly through partner universities</h2>
+      <p>Our goal: skip the extra forms. Apply straight to these universities without leaving Scholar Hub. <span style="font-weight:700; color:var(--green);">(Vision — partnerships in progress)</span></p>
+    </div>
+    <div class="partner-float-row">
+      <div class="partner-logo">University of Rwanda</div>
+      <div class="partner-logo">CMU-Africa</div>
+      <div class="partner-logo">AUCA</div>
+      <div class="partner-logo">University of Kigali</div>
+      <div class="partner-logo">University of Nairobi</div>
+    </div>
+  </div>
+</section>
+
+<!-- UNIVERSITIES -->
+<section class="page" id="universities">
+  <div class="section">
+    <div class="section-head">
+      <h2>Find</h2>
+      <p>Rwandan and East African institutions, with the scholarships that actually work with each one.</p>
+    </div>
+    <div class="filter-row" id="uniFilters"></div>
+    <div class="grid" id="uniGrid"></div>
+  </div>
+</section>
+
+<!-- SCHOLARSHIPS -->
+<section class="page" id="scholarships">
+  <div class="section">
+    <div class="section-head">
+      <h2>Scholarships</h2>
+      <p>Verified funding sources, each showing exactly which universities and programs it applies to.</p>
+    </div>
+    <div class="match-box">
+      <div>
+        <label>Field of study</label>
+        <select id="matchField">
+          <option>Engineering</option>
+          <option>Business</option>
+          <option>Medicine</option>
+          <option>Law</option>
+          <option>IT / Computer Science</option>
+        </select>
+      </div>
+      <div>
+        <label>Financial need</label>
+        <select id="matchNeed">
+          <option>High</option>
+          <option>Medium</option>
+          <option>Low</option>
+        </select>
+      </div>
+      <button class="btn btn-solid" id="matchBtn">Get My Match Scores</button>
+    </div>
+    <div class="filter-row" id="scholFilters"></div>
+    <div class="grid" id="scholGrid"></div>
+  </div>
+</section>
+
+<!-- APPLY (standalone page) -->
+<section class="page" id="apply">
+  <div class="section" style="max-width:640px;">
+    <div class="section-head">
+      <h2>Apply</h2>
+      <p>Pick a university or scholarship from the dropdown, then apply straight through Scholar Hub. Complete <b>My Profile</b> first so forms auto-fill.</p>
+    </div>
+    <div class="apply-field">
+      <label>Choose what you're applying to</label>
+      <select id="applyPageSelect">
+        <option value="">— Select a university or scholarship —</option>
+      </select>
+    </div>
+    <button class="btn btn-solid" id="applyPageBtn" style="margin-top:8px;" disabled>Apply Now</button>
+    <p class="login-note" style="margin-top:16px;">Partner items open the full multi-step wizard on Scholar Hub. Non-partner items can still be logged in your Tracker.</p>
+  </div>
+</section>
+
+
+<!-- ABOUT -->
+<section class="page" id="about">
+  <div class="about-inner">
+    <div class="about-wrap">
+      <div class="section-head">
+        <h2>Why Scholar Hub</h2>
+        <svg class="squiggle" viewBox="0 0 220 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 18C20 4 38 4 56 14C74 24 92 24 110 12C128 0 146 2 164 14C182 24 200 20 218 8" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p>Global platforms like Common App solve "which university should I apply to" — for african students, applying to east african schools. Nothing like that exists for Rwanda.</p>
+      <p>Scholarship information here is scattered across government bodies, NGOs, and individual universities, and students often can't tell which scholarships even apply to their school. Scholar Hub aggregates it, verifies it, and links every scholarship to the exact institutions it's valid for — so no opportunity goes unclaimed simply because a student never heard about it.</p>
+      <p class="team-line">— built by Team Unity</p>
+    </div>
+    <div class="about-art">
+      <!-- Original illustration: student with a graduation cap holding a scholarship scroll, framed by an imigongo-inspired triangle motif -->
+      <svg viewBox="0 0 380 380" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="190" cy="190" r="170" fill="var(--cream)"/>
+        <g opacity="0.9">
+          <polygon points="60,330 100,270 140,330" fill="var(--gold)" opacity="0.5"/>
+          <polygon points="240,330 280,260 320,330" fill="var(--green)" opacity="0.5"/>
+          <polygon points="150,340 190,290 230,340" fill="var(--navy)" opacity="0.35"/>
+        </g>
+        <circle cx="190" cy="150" r="46" fill="#F2C79A"/>
+        <path d="M144 150a46 46 0 0 1 92 0" fill="#2A1B12"/>
+        <rect x="150" y="220" width="80" height="90" rx="18" fill="var(--navy)"/>
+        <rect x="150" y="220" width="80" height="90" rx="18" fill="url(#stripe)" opacity="0.15"/>
+        <defs>
+          <pattern id="stripe" width="10" height="10" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+            <rect width="10" height="10" fill="white"/>
+            <line x1="0" y1="0" x2="0" y2="10" stroke="black" stroke-width="4"/>
+          </pattern>
+        </defs>
+        <path d="M120 120L190 92L260 120L190 148Z" fill="var(--navy-deep)"/>
+        <path d="M120 120L190 148L260 120" fill="none" stroke="var(--navy-deep)" stroke-width="4"/>
+        <line x1="255" y1="122" x2="255" y2="160" stroke="var(--navy-deep)" stroke-width="3"/>
+        <circle cx="255" cy="163" r="4" fill="var(--gold)"/>
+        <rect x="245" y="225" width="70" height="14" rx="7" fill="var(--gold)" transform="rotate(-18 245 225)"/>
+        <circle cx="238" cy="232" r="9" fill="var(--gold)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- MENTORS -->
+<section class="page" id="mentors">
+  <div class="section">
+    <div class="section-head">
+      <h2>Verified Mentors</h2>
+      <p>Past scholarship recipients and current university students offering essay reviews, interview prep, and application walkthroughs. Book a free session below.</p>
+    </div>
+    <div class="grid" id="mentorGrid"></div>
+  </div>
+</section>
+
+<!-- MY PROFILE -->
+<section class="page" id="profile">
+  <div class="section" style="max-width:700px;">
+    <div class="section-head">
+      <h2>My Profile</h2>
+      <p>Complete this once — it auto-fills every application you start on Scholar Hub.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:0 20px;">
+      <div class="apply-field"><label>Full name</label><input type="text" id="pfFullName" placeholder="Your full name"/></div>
+      <div class="apply-field"><label>Email</label><input type="text" id="pfEmail" placeholder="name@example.com"/></div>
+      <div class="apply-field"><label>Phone number</label><input type="text" id="pfPhone" placeholder="e.g. 078 xxx xxxx"/></div>
+      <div class="apply-field"><label>Nationality / citizenship</label><input type="text" id="pfNationality" placeholder="e.g. Rwandan"/></div>
+      <div class="apply-field"><label>District</label><input type="text" id="pfDistrict" placeholder="e.g. Gasabo"/></div>
+      <div class="apply-field">
+        <label>Current education level</label>
+        <select id="pfEducationLevel">
+          <option>Senior 6 / A-Level</option>
+          <option>Undergraduate</option>
+          <option>Graduate</option>
+          <option>TVET</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="apply-field"><label>Previous school / university</label><input type="text" id="pfPrevSchool" placeholder="e.g. FAWE Girls School"/></div>
+      <div class="apply-field"><label>GPA / grades or percentage</label><input type="text" id="pfGrades" placeholder="e.g. 82% or 3.6 GPA"/></div>
+      <div class="apply-field" style="grid-column:1 / -1;"><label>Key subjects</label><input type="text" id="pfSubjects" placeholder="e.g. Math, Physics, Computer Science"/></div>
+      <div class="apply-field"><label>Preferred field(s) of study</label><input type="text" id="pfPreferredFields" placeholder="e.g. Engineering, Business"/></div>
+      <div class="apply-field"><label>Preferred countries</label><input type="text" id="pfPreferredCountries" placeholder="e.g. Rwanda, Kenya"/></div>
+      <div class="apply-field">
+        <label>Financial need level</label>
+        <select id="pfFinancialNeed"><option>High</option><option selected>Medium</option><option>Low</option></select>
+      </div>
+      <div class="apply-field"><label>Test scores (if any)</label><input type="text" id="pfTestScores" placeholder="e.g. SAT 1240, IELTS 6.5"/></div>
+    </div>
+    <div class="apply-field">
+      <label>Short bio / personal statement draft</label>
+      <textarea id="pfBio" rows="5" placeholder="A few sentences about you, your goals, and why you're pursuing this path — you can refine this later, and it will pre-fill the essay step of any application." style="width:100%; padding:11px 13px; border-radius:10px; border:1px solid var(--line); font-size:14px; font-family:'Space Grotesk',sans-serif; background:var(--cream); resize:vertical;"></textarea>
+    </div>
+    <button class="btn btn-solid" id="pfSaveBtn">Save profile</button>
+    <span id="pfSavedNote" style="display:none; margin-left:12px; color:var(--green); font-size:13.5px; font-weight:600;">✓ Profile saved</span>
+  </div>
+</section>
+
+<!-- VAULT -->
+<section class="page" id="vault">
+  <div class="section" style="max-width:700px;">
+    <div class="section-head">
+      <h2>Document Vault</h2>
+      <p>Upload your documents once — attach them to any scholarship application with one click instead of re-uploading every time.</p>
+    </div>
+    <div id="vaultList"></div>
+    <div class="vault-privacy">
+      <b style="color:var(--navy-deep);">Privacy:</b> Documents stay with you on this device. They are only shared when you submit an application through Scholar Hub. You can replace or clear them anytime.
+    </div>
+  </div>
+</section>
+
+<!-- TRACK -->
+<section class="page" id="track">
+  <div class="section" style="max-width:700px;">
+    <div class="section-head">
+      <h2>Application Tracker</h2>
+      <p>See exactly where each of your applications stands, at a glance.</p>
+    </div>
+    <h3 style="font-size:16px; color:var(--navy-deep); margin-bottom:10px;">Your submitted applications</h3>
+    <div id="myApplicationsList" style="margin-bottom:34px;"></div>
+    <h3 style="font-size:16px; color:var(--navy-deep); margin-bottom:6px;">SFAR Student Loans</h3>
+    <div id="trackerList"></div>
+  </div>
+</section>
+
+
+
+<!-- LOGIN -->
+<section class="page" id="login">
+  <div class="login-shell">
+    <div class="login-form-side">
+      <div class="form-tabs">
+        <div class="form-tab active" data-form="signin">Log In</div>
+        <div class="form-tab" data-form="signup">Sign Up</div>
+      </div>
+      <h2 style="font-size:26px; color:var(--navy-deep); margin-bottom:6px;">Welcome to Scholar Hub</h2>
+      <p style="color:var(--muted); font-size:14.5px; margin-bottom:26px;">Find every scholarship and university opportunity built for you.</p>
+
+      <div id="signinForm">
+        <div class="field">
+          <label>Email</label>
+          <input type="text" id="signinEmail" placeholder="name@example.com" />
+          <span class="field-error" id="signinEmailError"></span>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" id="signinPassword" placeholder="Enter your password" />
+          <span class="field-error" id="signinPasswordError"></span>
+        </div>
+        <button class="btn btn-solid" style="width:100%; padding:13px;" id="signinSubmit" type="button">Log In</button>
+      </div>
+      <div id="signupForm" style="display:none;">
+        <div class="field">
+          <label>Full name</label>
+          <input type="text" id="signupName" placeholder="Your full name" />
+          <span class="field-error" id="signupNameError"></span>
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="text" id="signupEmail" placeholder="name@example.com" />
+          <span class="field-error" id="signupEmailError"></span>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" id="signupPassword" placeholder="Create a password" />
+          <span class="field-error" id="signupPasswordError"></span>
+        </div>
+        <div class="field">
+          <label>Repeat Password</label>
+          <input type="password" id="signupPasswordRepeat" placeholder="Repeat your password" />
+          <span class="field-error" id="signupPasswordRepeatError"></span>
+        </div>
+        <button class="btn btn-solid" style="width:100%; padding:13px;" id="signupSubmit" type="button">Create Account</button>
+      </div>
+      <p class="login-note">This is a working prototype UI — real authentication and profile setup connect here next.</p>
+    </div>
+    <div class="gorilla-side">
+      <div id="gorillaPane">
+        <svg viewBox="0 0 240 260">
+          <ellipse cx="120" cy="230" rx="95" ry="26" fill="#EDEDE8"></ellipse>
+          <path d="M 55 190 Q 40 130 70 95 Q 90 70 120 68 Q 150 70 170 95 Q 200 130 185 190 Q 195 215 165 225 Q 120 238 75 225 Q 45 215 55 190 Z" fill="#8a8a86"></path>
+          <ellipse cx="120" cy="100" rx="58" ry="30" fill="#26261f"></ellipse>
+          <path d="M 65 175 Q 60 210 90 222 L 90 190 Z" fill="#1c1c17"></path>
+          <path d="M 175 175 Q 180 210 150 222 L 150 190 Z" fill="#1c1c17"></path>
+          <ellipse cx="120" cy="118" rx="46" ry="42" fill="#1c1c17"></ellipse>
+          <ellipse cx="120" cy="132" rx="34" ry="28" fill="#4a3a2d"></ellipse>
+          <ellipse cx="102" cy="122" rx="15" ry="11" fill="#f8f8f4"></ellipse>
+          <ellipse cx="138" cy="122" rx="15" ry="11" fill="#f8f8f4"></ellipse>
+          <circle id="pupilL" cx="102" cy="122" r="5.5" fill="#141414"></circle>
+          <circle id="pupilR" cx="138" cy="122" r="5.5" fill="#141414"></circle>
+          <ellipse cx="120" cy="140" rx="12" ry="8" fill="#151513"></ellipse>
+          <path d="M 100 154 Q 120 166 140 154" stroke="#151513" stroke-width="3" fill="none" stroke-linecap="round"></path>
+          <ellipse cx="88" cy="98" rx="10" ry="14" fill="#1c1c17"></ellipse>
+          <ellipse cx="152" cy="98" rx="10" ry="14" fill="#1c1c17"></ellipse>
+        </svg>
+      </div>
+      <div class="caption">Our mascot is watching your cursor — try moving your mouse</div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY MODAL: multi-step wizard -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal-card wizard-card">
+    <button class="modal-close" id="applyModalClose" aria-label="Close">✕</button>
+
+    <div id="applyWizardView">
+      <h3>Apply</h3>
+      <div class="modal-target">
+        <span class="badge-type" id="applyTargetType">Scholarship</span>
+        <span id="applyTargetName">—</span>
+      </div>
+
+      <div class="wizard-progress" id="wizardProgress"></div>
+
+      <!-- Step 1: Profile & Program -->
+      <div class="wiz-step" id="wizStep1">
+        <div id="wizProfileIncomplete" style="display:none; background:var(--cream); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:16px;">
+          <p style="font-size:14px; color:var(--navy-deep); font-weight:600; margin-bottom:8px;">Finish your profile first</p>
+          <p style="font-size:13.5px; color:var(--muted); margin-bottom:12px;">Your profile fills in your applications automatically. Add at least your name and email to continue.</p>
+          <button class="btn btn-outline-dark" id="wizGoProfile" type="button" style="padding:8px 16px; font-size:13px;">Complete profile</button>
+        </div>
+        <div id="wizProfileSummary" style="display:none; margin-bottom:18px;">
+          <p style="font-size:13px; color:var(--muted); margin-bottom:8px;">Applying as:</p>
+          <div id="wizProfileRecap" style="background:var(--cream); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-size:13.5px; color:var(--navy-deep); line-height:1.7;"></div>
+        </div>
+        <div id="wizProgramField"></div>
+      </div>
+
+      <!-- Step 2: Documents -->
+      <div class="wiz-step" id="wizStep2" style="display:none;">
+        <p style="font-size:13.5px; color:var(--muted); margin-bottom:14px;">Pulled from your Document Vault. Required documents must be uploaded before you submit.</p>
+        <div id="wizDocsList"></div>
+      </div>
+
+      <!-- Step 3: Essay -->
+      <div class="wiz-step" id="wizStep3" style="display:none;">
+        <div class="apply-field">
+          <label>Personal statement (draft)</label>
+          <textarea id="wizEssay" rows="8" maxlength="4000" placeholder="Pre-filled from your profile bio — refine it here for this specific application." style="width:100%; padding:12px 13px; border-radius:10px; border:1px solid var(--line); font-size:14px; font-family:'Space Grotesk',sans-serif; background:var(--cream); resize:vertical;"></textarea>
+          <p style="font-size:12px; color:var(--muted); margin-top:6px; text-align:right;"><span id="wizEssayCount">0</span> / 4000 characters</p>
+        </div>
+      </div>
+
+      <!-- Step 4: Review & submit -->
+      <div class="wiz-step" id="wizStep4" style="display:none;">
+        <p style="font-size:13.5px; color:var(--muted); margin-bottom:14px;">Review everything before you submit.</p>
+        <div id="wizReviewSummary" style="background:var(--cream); border:1px solid var(--line); border-radius:12px; padding:16px; font-size:13.5px; color:var(--navy-deep); line-height:1.8; margin-bottom:16px;"></div>
+        <label style="display:flex; gap:8px; align-items:flex-start; font-size:13px; color:var(--ink); cursor:pointer;">
+          <input type="checkbox" id="wizConsent" style="margin-top:3px;"/>
+          <span>I consent to sharing this information with <span id="wizConsentTarget">—</span> through Scholar Hub.</span>
+        </label>
+        <div class="after-submit-box">
+          <b>What happens after I submit?</b><br/>
+          • Partner applications are prepared for the university/scholarship team (priority review when partnerships are live).<br/>
+          • You’ll get a tracking ID and can follow status on the Track page.<br/>
+          • Status moves: Submitted → Under Review → Offer / Waitlist / Rejected.<br/>
+          • You can still upload extra documents from the Vault if they request more info.
+        </div>
+        <p class="login-note" style="margin-top:14px;">This is a working prototype — submissions aren't sent to any real partner yet, but they'll show up in your Tracker.</p>
+      </div>
+
+      <div class="wizard-nav">
+        <button class="btn btn-outline-dark" id="wizBack" type="button">Back</button>
+        <button class="btn btn-ghost" id="wizSaveLater" type="button">Save & continue later</button>
+        <button class="btn btn-solid" id="wizNext" type="button">Next</button>
+      </div>
+    </div>
+
+    <div id="applySuccessView" style="display:none;">
+      <div class="apply-success">
+        <div class="check-circle">✓</div>
+        <h3>Application submitted</h3>
+        <p style="color:var(--muted); font-size:14.5px; margin-top:8px;" id="applySuccessText"></p>
+        <p style="font-family:monospace; font-size:13px; color:var(--navy-deep); background:var(--cream); border-radius:8px; padding:8px 12px; margin-top:12px; display:inline-block;" id="applyTrackingId"></p>
+        <div class="after-submit-box" style="text-align:left; max-width:420px; margin:16px auto 0;">
+          <b>Next steps</b><br/>
+          1. Watch the Track page for status updates.<br/>
+          2. Keep documents in your Vault ready if more info is requested.<br/>
+          3. Partner applications get priority review when the partnership is live.
+        </div>
+        <div style="display:flex; gap:10px; justify-content:center; margin-top:20px;">
+          <button class="btn btn-outline-dark" id="applyDone" type="button">Close</button>
+          <button class="btn btn-solid" id="applyGoTracker" type="button">Go to Tracker</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ---------- Navigation ---------- */
+let isAuthenticated = false;
+function goTo(target){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(target).classList.add('active');
+  document.querySelectorAll('.nav-links li').forEach(li=>li.classList.toggle('current', li.dataset.target===target));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+document.querySelectorAll('[data-target]').forEach(el=>{
+  el.addEventListener('click', ()=>goTo(el.dataset.target));
+});
+
+/* ---------- Login form tabs ---------- */
+document.querySelectorAll('.form-tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.form-tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('signinForm').style.display = tab.dataset.form==='signin' ? 'block':'none';
+    document.getElementById('signupForm').style.display = tab.dataset.form==='signup' ? 'block':'none';
+  });
+});
+
+/* ---------- Form validation ---------- */
+function setFieldError(inputId, errorId, message){
+  const input = document.getElementById(inputId);
+  const error = document.getElementById(errorId);
+  if(message){
+    input.classList.add('invalid');
+    error.textContent = message;
+    error.classList.add('show');
+  } else {
+    input.classList.remove('invalid');
+    error.textContent = '';
+    error.classList.remove('show');
+  }
+  return !message;
+}
+function isValidEmail(value){
+  // requires an @ with at least one character before it and a dot after it
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+function hasNoDigits(value){
+  return !/\d/.test(value);
+}
+
+document.getElementById('signinSubmit').addEventListener('click', async ()=>{
+  const email = document.getElementById('signinEmail').value;
+  const password = document.getElementById('signinPassword').value;
+  let ok = true;
+  ok = setFieldError('signinEmail','signinEmailError',
+    email.trim()==='' ? 'Email is required.' :
+    !isValidEmail(email) ? 'Enter a valid email (must include an @ and a domain).' : '') && ok;
+  ok = setFieldError('signinPassword','signinPasswordError',
+    password==='' ? 'Password is required.' :
+    password.length<8 ? 'Password must be at least 8 characters.' : '') && ok;
+  if(!ok) return;
+  // Real check against the database — no more "any well-formed input logs you in".
+  try {
+    const data = await apiFetch('/auth/login', { method:'POST', body: JSON.stringify({ email: email.trim(), password }) });
+    authToken = data.token;
+    await restoreBackendSession();
+    goTo('home');
+  } catch (err) {
+    setFieldError('signinPassword','signinPasswordError', err.message || 'Log in failed.');
+  }
+});
+
+document.getElementById('signupSubmit').addEventListener('click', async ()=>{
+  const name = document.getElementById('signupName').value;
+  const email = document.getElementById('signupEmail').value;
+  const password = document.getElementById('signupPassword').value;
+  const repeat = document.getElementById('signupPasswordRepeat').value;
+  let ok = true;
+  ok = setFieldError('signupName','signupNameError',
+    name.trim()==='' ? 'Full name is required.' :
+    !hasNoDigits(name) ? 'Name should not contain numbers.' : '') && ok;
+  ok = setFieldError('signupEmail','signupEmailError',
+    email.trim()==='' ? 'Email is required.' :
+    !isValidEmail(email) ? 'Enter a valid email (must include an @ and a domain).' : '') && ok;
+  ok = setFieldError('signupPassword','signupPasswordError',
+    password==='' ? 'Password is required.' :
+    password.length<8 ? 'Password must be at least 8 characters.' : '') && ok;
+  ok = setFieldError('signupPasswordRepeat','signupPasswordRepeatError',
+    repeat==='' ? 'Please repeat your password.' :
+    repeat!==password ? 'Passwords do not match.' : '') && ok;
+  if(!ok) return;
+  // Real account creation in the database — not just a local flag flip.
+  try {
+    const data = await apiFetch('/auth/signup', { method:'POST', body: JSON.stringify({ name: name.trim(), email: email.trim(), password }) });
+    authToken = data.token;
+    await restoreBackendSession();
+    goTo('profile');
+  } catch (err) {
+    setFieldError('signupEmail','signupEmailError', err.message || 'Sign up failed.');
+  }
+});
+
+/* ---------- Gorilla eye tracking ---------- */
+(function(){
+  const pane = document.getElementById('gorillaPane');
+  const pupilL = document.getElementById('pupilL');
+  const pupilR = document.getElementById('pupilR');
+  const maxOffset = 4.2;
+  document.addEventListener('mousemove', (e)=>{
+    const rect = pane.getBoundingClientRect();
+    const cx = rect.left + rect.width * 0.474;
+    const cy = rect.top + rect.height * 0.23;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+    const dist = Math.hypot(dx,dy) || 1;
+    const ox = (dx/dist) * maxOffset;
+    const oy = (dy/dist) * maxOffset;
+    pupilL.setAttribute('cx', 102+ox); pupilL.setAttribute('cy', 122+oy);
+    pupilR.setAttribute('cx', 138+ox); pupilR.setAttribute('cy', 122+oy);
+  });
+})();
+
+/* ---------- Animated counters ---------- */
+function animateCount(id, target){
+  let cur=0;
+  const el = document.getElementById(id);
+  const step = Math.max(1, Math.round(target/40));
+  const iv = setInterval(()=>{
+    cur += step;
+    if(cur>=target){cur=target; clearInterval(iv);}
+    el.textContent = cur + (target>=6 ? '+':'');
+  }, 30);
+}
+animateCount('statSch', 42);
+animateCount('statUni', 14);
+animateCount('statCountry', 6);
+
+/* ---------- Data: Universities ---------- */
+const universities = [
+  {name:"University of Rwanda (UR)", country:"Rwanda", tuition:"≈ 600,000 – 1,200,000 RWF / yr", programs:"Engineering, Medicine, Business, Education, Sciences", link:"https://www.ur.ac.rw", scholarships:["SFAR","Mastercard Foundation"], partner:true, deadline:"Rolling — intake in Sept & Jan", documents:["Academic Transcript","National ID / Passport"], livingCost:"≈ 150,000 – 250,000 RWF / month", benefits:"Priority review · Application fee waiver · Exclusive scholarship matching"},
+  {name:"Carnegie Mellon University Africa", country:"Rwanda", tuition:"Contact admissions for tuition & aid", programs:"ICT, Electrical & Computer Engineering, Information Technology", link:"https://africa.engineering.cmu.edu", scholarships:["Mastercard Foundation"], partner:true, deadline:"Jan 15 (Fall intake)", documents:["Academic Transcript","National ID / Passport","Recommendation Letter"], livingCost:"Campus housing available — contact admissions", benefits:"Priority review · Mastercard Scholars pathway support"},
+  {name:"University of Kigali", country:"Rwanda", tuition:"≈ 700,000 – 1,500,000 RWF / yr", programs:"Law, Business, IT, Public Health", link:"https://www.uok.ac.rw", scholarships:["SFAR","BRD Minuza"], partner:true, deadline:"Rolling", documents:["Academic Transcript","National ID / Passport"], livingCost:"≈ 180,000 – 280,000 RWF / month", benefits:"Priority review · BRD Minuza guidance · Fee waiver for eligible applicants"},
+  {name:"Mount Kenya University Rwanda", country:"Rwanda", tuition:"≈ 650,000 – 1,300,000 RWF / yr", programs:"Business, Education, Health Sciences, Journalism", link:"https://mku.ac.rw", scholarships:["SFAR"], partner:false, deadline:"Rolling", documents:["Academic Transcript","National ID / Passport"], livingCost:"≈ 150,000 – 250,000 RWF / month"},
+  {name:"Adventist University of Central Africa (AUCA)", country:"Rwanda", tuition:"≈ 600,000 – 1,100,000 RWF / yr", programs:"Theology, Business, Nursing, Computer Science", link:"https://www.auca.ac.rw", scholarships:["SFAR","BRD Minuza"], partner:true, deadline:"Rolling", documents:["Academic Transcript","National ID / Passport"], livingCost:"≈ 140,000 – 220,000 RWF / month", benefits:"Priority review · BRD Minuza guidance"},
+  {name:"Makerere University", country:"Uganda", tuition:"Varies by program — see admissions", programs:"Medicine, Engineering, Agriculture, Arts", link:"https://www.mak.ac.ug", scholarships:["DAAD","Mastercard Foundation"], partner:false, deadline:"See admissions calendar", documents:["Academic Transcript","National ID / Passport","Recommendation Letter"], livingCost:"Varies — Kampala"},
+  {name:"Kyambogo University", country:"Uganda", tuition:"Varies by program — see admissions", programs:"Engineering, Education, Vocational Studies", link:"https://kyu.ac.ug", scholarships:["DAAD"], partner:false, deadline:"See admissions calendar", documents:["Academic Transcript","National ID / Passport"], livingCost:"Varies — Kampala"},
+  {name:"University of Nairobi", country:"Kenya", tuition:"Varies by program — see admissions", programs:"Law, Medicine, Engineering, Business", link:"https://www.uonbi.ac.ke", scholarships:["Mastercard Foundation"], partner:false, deadline:"See admissions calendar", documents:["Academic Transcript","National ID / Passport"], livingCost:"Varies — Nairobi"},
+  {name:"Strathmore University", country:"Kenya", tuition:"Varies by program — see admissions", programs:"Business, Law, IT, Actuarial Science", link:"https://strathmore.edu", scholarships:["Employer-Sponsored"], partner:false, deadline:"See admissions calendar", documents:["Academic Transcript","National ID / Passport","Recommendation Letter"], livingCost:"Varies — Nairobi"},
+  {name:"University of Dar es Salaam", country:"Tanzania", tuition:"Varies by program — see admissions", programs:"Engineering, Law, Social Sciences", link:"https://www.udsm.ac.tz", scholarships:["DAAD"], partner:false, deadline:"See admissions calendar", documents:["Academic Transcript","National ID / Passport"], livingCost:"Varies — Dar es Salaam"},
+  {name:"University of Burundi", country:"Burundi", tuition:"Varies by program — see admissions", programs:"Medicine, Agronomy, Law, Sciences", link:"#", scholarships:["SFAR"], partner:false, deadline:"See admissions", documents:["Academic Transcript","National ID / Passport"], livingCost:"Varies"},
+  {name:"University of Kinshasa", country:"DR Congo", tuition:"Varies by program — see admissions", programs:"Medicine, Law, Engineering, Economics", link:"#", scholarships:["DAAD"], partner:false, deadline:"See admissions", documents:["Academic Transcript","National ID / Passport"], livingCost:"Varies"},
+];
+
+const uniCountries = ["All", ...new Set(universities.map(u=>u.country))];
+const uniFilterRow = document.getElementById('uniFilters');
+uniCountries.forEach((c,i)=>{
+  const chip = document.createElement('div');
+  chip.className = 'chip' + (i===0 ? ' active':'');
+  chip.textContent = c;
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('#uniFilters .chip').forEach(ch=>ch.classList.remove('active'));
+    chip.classList.add('active');
+    renderUniversities(c);
+  });
+  uniFilterRow.appendChild(chip);
+});
+
+const uniGrid = document.getElementById('uniGrid');
+function renderUniversities(filter){
+  const list = filter==='All' ? universities : universities.filter(u=>u.country===filter);
+  uniGrid.innerHTML = list.map(u=>`
+    <div class="card">
+      <div class="card-top"><h3>${u.name}</h3><span class="badge badge-amount">${u.country}</span></div>
+      ${u.partner ? `<span class="badge badge-partner">★ Scholar Hub Partner</span>` : ''}
+      <div class="meta-row"><span>${u.tuition}</span></div>
+      <p style="font-size:13.5px; color:var(--muted);">${u.programs}</p>
+      <div class="card-detail">
+        ${u.deadline ? `<div><b>Deadline:</b> ${u.deadline}</div>` : ''}
+        ${u.livingCost ? `<div><b>Living cost:</b> ${u.livingCost}</div>` : ''}
+        ${u.documents ? `<div><b>Required docs:</b> ${u.documents.join(', ')}</div>` : ''}
+      </div>
+      ${u.partner && u.benefits ? `<div class="partner-benefits"><b>Partner benefits:</b> ${u.benefits}</div>` : ''}
+      <div class="tag-row">${u.scholarships.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
+      <div class="card-foot">
+        <a class="apply-link" href="${u.link}" target="_blank" rel="noopener">${u.partner ? 'Learn more →' : 'Continue on university site →'}</a>
+        <button class="ask-mentor-btn" type="button" onclick="goTo('mentors')">Ask a mentor</button>
+        ${u.partner
+          ? `<button class="apply-btn" data-apply-type="University" data-apply-name="${u.name.replace(/"/g,'&quot;')}">Apply via Scholar Hub</button>`
+          : `<button class="apply-btn track-only" data-apply-type="University" data-apply-name="${u.name.replace(/"/g,'&quot;')}">Track this application</button>`}
+      </div>
+    </div>`).join('');
+  wireApplyButtons();
+}
+renderUniversities('All');
+
+/* ---------- Data: Scholarships ---------- */
+const scholarships = [
+  {name:"SFAR Student Loans", provider:"Government of Rwanda", category:"Government", amount:"Tuition + living stipend", deadline:"Rolling, annual cycle", eligibility:"Any accredited Rwandan institution", link:"https://sfar.gov.rw", partner:true, documents:["Academic Transcript","National ID / Passport"], eligibleUnis:["University of Rwanda (UR)","University of Kigali","Adventist University of Central Africa (AUCA)","Mount Kenya University Rwanda"]},
+  {name:"BRD Minuza Loan Portal", provider:"Development Bank of Rwanda", category:"Government", amount:"Varies by program", deadline:"Rolling", eligibility:"University of Kigali, AUCA, and partner institutions", link:"https://minuza.brd.rw/", partner:true, documents:["Academic Transcript","National ID / Passport"], eligibleUnis:["University of Kigali","Adventist University of Central Africa (AUCA)"]},
+  {name:"Mastercard Foundation Scholars Program", provider:"Mastercard Foundation", category:"NGO", amount:"Full tuition + stipend", deadline:"Varies by partner university", eligibility:"UR, CMU-Africa, Makerere (partner institutions only)", link:"#", partner:true, documents:["Academic Transcript","National ID / Passport","Recommendation Letter","Personal Statement"], eligibleUnis:["University of Rwanda (UR)","Carnegie Mellon University Africa","Makerere University"]},
+  {name:"DAAD Scholarships — East Africa", provider:"DAAD (Germany)", category:"International", amount:"Full funding + travel", deadline:"Varies by program", eligibility:"Specific graduate programs, partner universities", link:"#", partner:false, documents:["Academic Transcript","National ID / Passport","Recommendation Letter"], eligibleUnis:["Makerere University","Kyambogo University","University of Dar es Salaam"]},
+  {name:"District Community Bursary", provider:"Local district fund (example)", category:"Local", amount:"Partial tuition support", deadline:"Set by district office", eligibility:"Any accredited institution, district residents", link:"#", partner:false, documents:["Academic Transcript","National ID / Passport"], eligibleUnis:[]},
+];
+const categories = ["All", ...new Set(scholarships.map(s=>s.category))];
+const filterRow = document.getElementById('scholFilters');
+categories.forEach((c,i)=>{
+  const chip = document.createElement('div');
+  chip.className = 'chip' + (i===0 ? ' active':'');
+  chip.textContent = c;
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('.chip').forEach(ch=>ch.classList.remove('active'));
+    chip.classList.add('active');
+    renderScholarships(c);
+  });
+  filterRow.appendChild(chip);
+});
+
+const scholGrid = document.getElementById('scholGrid');
+function renderScholarships(filter){
+  const list = filter==='All' ? scholarships : scholarships.filter(s=>s.category===filter);
+  scholGrid.innerHTML = list.map(s=>`
+    <div class="card" data-sch-name="${s.name}">
+      <div class="card-top">
+        <h3>${s.name}</h3>
+        <span class="badge badge-verified">✓ Verified</span>
+      </div>
+      ${s.partner ? `<span class="badge badge-partner">★ Scholar Hub Partner</span>` : ''}
+      <div class="meta-row"><span>${s.provider}</span><span>${s.deadline}</span></div>
+      <span class="badge badge-amount" style="width:fit-content;">${s.amount}</span>
+      <p style="font-size:13px; color:var(--muted);"><b style="color:var(--navy-deep);">Works with:</b> ${s.eligibility}</p>
+      <div class="card-detail">
+        ${s.documents ? `<div><b>Required docs:</b> ${s.documents.join(', ')}</div>` : ''}
+        ${s.eligibleUnis && s.eligibleUnis.length ? `<div><b>Eligible universities:</b> ${s.eligibleUnis.join(' · ')}</div>` : ''}
+      </div>
+      ${s.partner ? `<div class="partner-benefits"><b>Apply via Scholar Hub</b> for guided submission and tracking.</div>` : ''}
+      <div class="card-foot">
+        <a class="apply-link" href="${s.link}" target="_blank" rel="noopener">${s.partner ? 'Learn more →' : 'Continue on provider site →'}</a>
+        <button class="ask-mentor-btn" type="button" onclick="goTo('mentors')">Ask a mentor</button>
+        ${s.partner
+          ? `<button class="apply-btn" data-apply-type="Scholarship" data-apply-name="${s.name.replace(/"/g,'&quot;')}">Apply via Scholar Hub</button>`
+          : `<button class="apply-btn track-only" data-apply-type="Scholarship" data-apply-name="${s.name.replace(/"/g,'&quot;')}">Track this application</button>`}
+      </div>
+    </div>`).join('');
+  wireApplyButtons();
+}
+renderScholarships('All');
+
+/* ---------- Employer-Sponsored scholarships ---------- */
+scholarships.push(
+  {name:"Twiga Capital Future Talent Award", provider:"Twiga Capital (employer-sponsored)", category:"Employer", amount:"Full tuition + guaranteed internship", deadline:"Applications open termly", eligibility:"Business & IT programs, any accredited institution — includes a post-graduation internship offer", link:"#", partner:false, documents:["Academic Transcript","National ID / Passport","Personal Statement"], eligibleUnis:[]},
+  {name:"Virunga Works Engineering Award", provider:"Virunga Works (employer-sponsored)", category:"Employer", amount:"Partial tuition + job placement track", deadline:"Rolling", eligibility:"Engineering programs at UR, CMU-Africa, University of Kigali", link:"#", partner:false, documents:["Academic Transcript","National ID / Passport"], eligibleUnis:["University of Rwanda (UR)","Carnegie Mellon University Africa","University of Kigali"]}
+);
+// refresh filter chips to include Employer, then re-render
+filterRow.innerHTML = '';
+const categories2 = ["All", ...new Set(scholarships.map(s=>s.category))];
+categories2.forEach((c,i)=>{
+  const chip = document.createElement('div');
+  chip.className = 'chip' + (i===0 ? ' active':'');
+  chip.textContent = c;
+  chip.addEventListener('click', ()=>{
+    document.querySelectorAll('#scholFilters .chip').forEach(ch=>ch.classList.remove('active'));
+    chip.classList.add('active');
+    renderScholarships(c);
+  });
+  filterRow.appendChild(chip);
+});
+renderScholarships('All');
+
+/* ---------- Standalone Apply page dropdown ---------- */
+const applyPageSelect = document.getElementById('applyPageSelect');
+const uniGroup = document.createElement('optgroup');
+uniGroup.label = 'Universities';
+universities.forEach(u=>{
+  const opt = document.createElement('option');
+  opt.value = 'University|' + u.name;
+  opt.textContent = u.name + (u.partner ? ' — Partner' : '');
+  uniGroup.appendChild(opt);
+});
+const schGroup = document.createElement('optgroup');
+schGroup.label = 'Scholarships';
+scholarships.forEach(s=>{
+  const opt = document.createElement('option');
+  opt.value = 'Scholarship|' + s.name;
+  opt.textContent = s.name + (s.partner ? ' — Partner' : '');
+  schGroup.appendChild(opt);
+});
+applyPageSelect.appendChild(uniGroup);
+applyPageSelect.appendChild(schGroup);
+applyPageSelect.addEventListener('change', ()=>{
+  document.getElementById('applyPageBtn').disabled = !applyPageSelect.value;
+});
+document.getElementById('applyPageBtn').addEventListener('click', ()=>{
+  const [type, name] = applyPageSelect.value.split('|');
+  if(!type || !name) return;
+  openApplyModal(type, name);
+});
+
+/* ---------- Match Score ---------- */
+function scoreFor(sch, field, need){
+  let base = 55;
+  if(sch.category==='Government') base += 20;
+  if(sch.category==='NGO') base += 12;
+  if(sch.category==='Employer' && field!=='Business' && field!=='Engineering' && field!=='IT / Computer Science') base -= 10;
+  if(need==='High') base += 15;
+  if(need==='Low') base -= 10;
+  // Use full profile when available
+  const pref = (studentProfile.preferredFields || '').toLowerCase();
+  const subjects = (studentProfile.keySubjects || '').toLowerCase();
+  const fieldLow = field.toLowerCase();
+  if(pref && (pref.includes(fieldLow.split(' ')[0]) || fieldLow.includes(pref.split(',')[0].trim().slice(0,6)))) base += 10;
+  if(subjects && (subjects.includes('math') || subjects.includes('physics')) && (field==='Engineering' || field==='IT / Computer Science')) base += 6;
+  if(studentProfile.nationality && /rwanda/i.test(studentProfile.nationality) && sch.category==='Government') base += 8;
+  if(studentProfile.district && sch.name.includes('District')) base += 5;
+  if(sch.partner) base += 4;
+  const variance = (sch.name.length * 7) % 17;
+  return Math.max(38, Math.min(97, base + variance - 8));
+}
+function scoreClass(v){ return v>=75 ? 'match-high' : v>=55 ? 'match-mid' : 'match-low'; }
+function scoreReason(sch, field, need, score){
+  const bits = [];
+  if(sch.category==='Government') bits.push('government funding');
+  if(sch.partner) bits.push('partner pathway');
+  if(need==='High') bits.push('high need fit');
+  if(studentProfile.preferredFields) bits.push('matches preferred fields');
+  return bits.length ? bits.slice(0,2).join(' · ') : 'general fit';
+}
+
+document.getElementById('matchBtn').addEventListener('click', ()=>{
+  // Prefer profile values when set
+  let field = document.getElementById('matchField').value;
+  let need = document.getElementById('matchNeed').value;
+  if(studentProfile.preferredFields){
+    const pf = studentProfile.preferredFields.toLowerCase();
+    const options = ['Engineering','Business','Medicine','Law','IT / Computer Science'];
+    const hit = options.find(o => pf.includes(o.toLowerCase().split(' ')[0]) || pf.includes(o.toLowerCase()));
+    if(hit){ field = hit; document.getElementById('matchField').value = hit; }
+  }
+  if(studentProfile.financialNeed){
+    need = studentProfile.financialNeed;
+    document.getElementById('matchNeed').value = need;
+  }
+  document.querySelectorAll('#scholGrid .card').forEach((card)=>{
+    const sch = scholarships.find(s => s.name === card.dataset.schName);
+    if(!sch) return;
+    const score = scoreFor(sch, field, need);
+    let pill = card.querySelector('.match-pill');
+    if(!pill){
+      pill = document.createElement('span');
+      pill.className = 'match-pill';
+      card.querySelector('.card-top').appendChild(pill);
+    }
+    pill.className = 'match-pill ' + scoreClass(score);
+    pill.textContent = score + '% match';
+    pill.title = scoreReason(sch, field, need, score);
+  });
+});
+
+/* ---------- Mentors ---------- */
+const mentors = [
+  {name:"Aline U.", role:"UR Engineering Alum · Mastercard Scholar", focus:"Essay review, interview prep", rate:"Free · 20 min"},
+  {name:"Eric N.", role:"CMU-Africa Student", focus:"IT & Engineering applications", rate:"Free · 20 min"},
+  {name:"Divine K.", role:"AUCA Alum · SFAR recipient", focus:"SFAR & BRD loan process walkthrough", rate:"Free · 15 min"},
+  {name:"Grace M.", role:"University of Nairobi Student", focus:"Regional (Kenya) applications", rate:"Free · 20 min"},
+];
+const mentorGrid = document.getElementById('mentorGrid');
+mentorGrid.innerHTML = mentors.map((m,i)=>`
+  <div class="card mentor-card">
+    <div class="mentor-avatar"></div>
+    <div style="flex:1;">
+      <h3 style="font-size:17px;">${m.name}</h3>
+      <p style="font-size:13px; color:var(--muted); margin:4px 0 8px;">${m.role}</p>
+      <p style="font-size:13px; color:var(--ink);">${m.focus}</p>
+      <div class="card-foot" style="margin-top:14px;">
+        <span class="badge badge-verified">✓ Verified</span>
+        <span style="font-size:12.5px; font-weight:600; color:var(--navy-deep);">${m.rate}</span>
+      </div>
+      <button class="btn btn-outline-dark mentor-book" type="button" onclick="bookMentor(${i})">Book free session</button>
+    </div>
+  </div>`).join('');
+function bookMentor(i){
+  const m = mentors[i];
+  alert('Session request sent to ' + m.name + ' (' + m.rate + ').\n\nIn the full product this opens a booking calendar. For this prototype, treat it as a confirmed request — they would follow up by email.');
+}
+
+/* ---------- Document Vault ---------- */
+let vaultDocs = [
+  {name:"Academic Transcript", status:false},
+  {name:"National ID / Passport", status:false},
+  {name:"Recommendation Letter", status:false},
+  {name:"Personal Statement", status:false},
+];
+function renderVault(){
+  document.getElementById('vaultList').innerHTML = vaultDocs.map((d,i)=>`
+    <div class="upload-row ${d.status?'done':''}">
+      <span>${d.name}</span>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <span class="upload-status ${d.status?'done':''}">${d.status?'✓ Uploaded':'Not uploaded'}</span>
+        <button class="btn btn-outline-dark" style="padding:7px 14px; font-size:13px;" onclick="toggleVault(${i})">${d.status?'Replace':'Upload'}</button>
+      </div>
+    </div>`).join('');
+}
+function toggleVault(i){ vaultDocs[i].status = true; renderVault(); persistAll(); }
+renderVault();
+
+/* ---------- Application Tracker ---------- */
+const trackerSteps = [
+  {label:"Profile complete", state:"done"},
+  {label:"Documents uploaded", state:"done"},
+  {label:"Essay drafted", state:"active"},
+  {label:"Application submitted", state:"pending"},
+  {label:"Result received", state:"pending"},
+];
+document.getElementById('trackerList').innerHTML = trackerSteps.map((s,i)=>`
+  <div class="tracker-item">
+    <div class="tracker-dot ${s.state==='done'?'done':s.state==='active'?'active':''}">${s.state==='done'?'✓':i+1}</div>
+    <div>
+      <p style="font-weight:600; color:var(--navy-deep); font-size:14.5px;">${s.label}</p>
+      <p style="font-size:12.5px; color:var(--muted); margin-top:2px;">${s.state==='done'?'Complete':s.state==='active'?'In progress':'Not started'}</p>
+    </div>
+  </div>`).join('');
+
+/* ---------- Student Profile (backend-only; no browser storage) ---------- */
+const studentProfile = {
+  fullName:'', email:'', phone:'', nationality:'', district:'', educationLevel:'Senior 6 / A-Level',
+  previousSchool:'', grades:'', keySubjects:'', preferredFields:'', preferredCountries:'',
+  financialNeed:'Medium', testScores:'', bio:''
+};
+const pfIds = {
+  fullName:'pfFullName', email:'pfEmail', phone:'pfPhone', nationality:'pfNationality', district:'pfDistrict',
+  educationLevel:'pfEducationLevel', previousSchool:'pfPrevSchool', grades:'pfGrades', keySubjects:'pfSubjects',
+  preferredFields:'pfPreferredFields', preferredCountries:'pfPreferredCountries', financialNeed:'pfFinancialNeed',
+  testScores:'pfTestScores', bio:'pfBio'
+};
+function isProfileComplete(){ return studentProfile.fullName.trim()!=='' && studentProfile.email.trim()!==''; }
+
+function loadProfileToForm(){
+  Object.keys(pfIds).forEach(key=>{
+    const el = document.getElementById(pfIds[key]);
+    if(el) el.value = studentProfile[key] || '';
+  });
+}
+function saveProfileFromForm(){
+  Object.keys(pfIds).forEach(key=>{ studentProfile[key] = document.getElementById(pfIds[key]).value; });
+  persistAll();
+}
+document.getElementById('pfSaveBtn').addEventListener('click', ()=>{
+  saveProfileFromForm();
+  const note = document.getElementById('pfSavedNote');
+  note.style.display = 'inline';
+  setTimeout(()=>{ note.style.display = 'none'; }, 2500);
+});
+
+/* ---------- Apply feature: multi-step wizard (scholarships + universities) ---------- */
+let myApplications = [];
+const applyModal = document.getElementById('applyModal');
+const applyWizardView = document.getElementById('applyWizardView');
+const applySuccessView = document.getElementById('applySuccessView');
+let currentApplyTarget = null;   // { type, name, record, isPartner }
+let wizStep = 1;
+const WIZ_LABELS = ['Profile & Program','Documents','Personal Statement','Review & Submit'];
+let wizDraft = { program:'', eligibilityConfirmed:false, docsRequired:[], essay:'', consent:false };
+
+function findTargetRecord(type, name){
+  return type === 'University' ? universities.find(u=>u.name===name) : scholarships.find(s=>s.name===name);
+}
+
+function openApplyModal(type, name){
+  const record = findTargetRecord(type, name);
+  currentApplyTarget = { type, name, record, isPartner: !!(record && record.partner) };
+  document.getElementById('applyTargetType').textContent = type;
+  document.getElementById('applyTargetName').textContent = name;
+  wizStep = 1;
+  wizDraft = { program:'', eligibilityConfirmed:false, docsRequired:[], essay: studentProfile.bio || '', consent:false };
+  applyWizardView.style.display = 'block';
+  applySuccessView.style.display = 'none';
+  applyModal.classList.add('open');
+  renderWizardStep();
+}
+
+/* Quick "track only" flow for non-partner cards — skip the wizard entirely */
+function trackOnlyLog(type, name){
+  const id = 'SH-' + Math.random().toString(36).slice(2,8).toUpperCase();
+  myApplications.push({ type, name, status:'Submitted', trackingId:id, submittedAt:new Date().toISOString(), external:true });
+  renderMyApplications();
+  persistAll();
+}
+
+function wireApplyButtons(){
+  document.querySelectorAll('.apply-btn[data-apply-type]').forEach(btn=>{
+    // avoid double-binding when grids re-render
+    btn.replaceWith(btn.cloneNode(true));
+  });
+  document.querySelectorAll('.apply-btn[data-apply-type]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(btn.classList.contains('track-only')){
+        trackOnlyLog(btn.dataset.applyType, btn.dataset.applyName);
+        btn.textContent = 'Added to Tracker ✓';
+        btn.disabled = true;
+      } else {
+        openApplyModal(btn.dataset.applyType, btn.dataset.applyName);
+      }
+    });
+  });
+}
+
+function closeApplyModal(){
+  applyModal.classList.remove('open');
+}
+document.getElementById('applyModalClose').addEventListener('click', closeApplyModal);
+applyModal.addEventListener('click', (e)=>{ if(e.target === applyModal) closeApplyModal(); });
+document.getElementById('applyDone').addEventListener('click', closeApplyModal);
+document.getElementById('applyGoTracker').addEventListener('click', ()=>{ closeApplyModal(); goTo('track'); });
+document.getElementById('wizGoProfile').addEventListener('click', ()=>{ closeApplyModal(); goTo('profile'); });
+
+function renderWizardStep(){
+  document.querySelectorAll('.wiz-step').forEach(el=>el.style.display='none');
+  document.getElementById('wizStep'+wizStep).style.display = 'block';
+
+  // progress bar
+  const bar = document.getElementById('wizardProgress');
+  bar.innerHTML = WIZ_LABELS.map((label,i)=>{
+    const n = i+1;
+    const cls = n < wizStep ? 'wp-done' : n === wizStep ? 'wp-current' : '';
+    return `<div class="wp-step ${cls}" title="${label}"></div>`;
+  }).join('') + `<div class="wizard-step-label" style="width:100%; margin-top:8px;">Step ${wizStep} of ${WIZ_LABELS.length}: ${WIZ_LABELS[wizStep-1]}</div>`;
+
+  if(wizStep === 1) renderWizStep1();
+  if(wizStep === 2) renderWizStep2();
+  if(wizStep === 3) renderWizStep3();
+  if(wizStep === 4) renderWizStep4();
+
+  document.getElementById('wizBack').style.visibility = wizStep === 1 ? 'hidden' : 'visible';
+  document.getElementById('wizNext').textContent = wizStep === WIZ_LABELS.length ? 'Submit application' : 'Next';
+}
+
+function renderWizStep1(){
+  const complete = isProfileComplete();
+  document.getElementById('wizProfileIncomplete').style.display = complete ? 'none' : 'block';
+  document.getElementById('wizProfileSummary').style.display = complete ? 'block' : 'none';
+  if(complete){
+    document.getElementById('wizProfileRecap').innerHTML = `
+      <b>${studentProfile.fullName}</b><br/>
+      ${studentProfile.email}${studentProfile.phone ? ' · '+studentProfile.phone : ''}<br/>
+      ${studentProfile.educationLevel}${studentProfile.previousSchool ? ' · '+studentProfile.previousSchool : ''}`;
+  }
+  const target = currentApplyTarget;
+  const field = document.getElementById('wizProgramField');
+  if(target.type === 'University'){
+    const programs = (target.record && target.record.programs ? target.record.programs.split(',') : []).map(p=>p.trim());
+    field.innerHTML = `
+      <div class="apply-field">
+        <label>Which program are you applying to?</label>
+        <select id="wizProgramSelect">${programs.map(p=>`<option ${wizDraft.program===p?'selected':''}>${p}</option>`).join('')}</select>
+      </div>`;
+    document.getElementById('wizProgramSelect').addEventListener('change', e=>{ wizDraft.program = e.target.value; });
+    wizDraft.program = wizDraft.program || programs[0] || '';
+  } else {
+    field.innerHTML = `
+      <div style="background:var(--cream); border:1px solid var(--line); border-radius:10px; padding:14px 16px; font-size:13.5px; color:var(--ink); margin-bottom:12px;">
+        <b style="color:var(--navy-deep);">Eligibility:</b> ${target.record ? target.record.eligibility : ''}
+      </div>
+      <label style="display:flex; gap:8px; align-items:flex-start; font-size:13.5px; cursor:pointer;">
+        <input type="checkbox" id="wizEligibilityCheck" ${wizDraft.eligibilityConfirmed ? 'checked' : ''} style="margin-top:3px;"/>
+        <span>I confirm I meet the eligibility criteria above.</span>
+      </label>`;
+    document.getElementById('wizEligibilityCheck').addEventListener('change', e=>{ wizDraft.eligibilityConfirmed = e.target.checked; });
+  }
+}
+
+function renderWizStep2(){
+  const requiredNames = (currentApplyTarget.record && currentApplyTarget.record.documents) || ['Academic Transcript','National ID / Passport'];
+  document.getElementById('wizDocsList').innerHTML = vaultDocs.map((d,i)=>{
+    const required = requiredNames.includes(d.name);
+    return `
+      <div class="doc-check-row">
+        <div>
+          <p style="font-weight:600; color:var(--navy-deep); font-size:13.5px;">${d.name}</p>
+          <p style="font-size:12px; color:${d.status ? 'var(--green)' : 'var(--muted)'}; margin-top:2px;">${d.status ? '✓ Uploaded' : 'Not uploaded'}</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span class="doc-req ${required ? 'required':'optional'}">${required ? 'Required' : 'Optional'}</span>
+          <button class="btn btn-outline-dark" style="padding:6px 12px; font-size:12.5px;" type="button" onclick="toggleVault(${i}); renderWizStep2();">${d.status ? 'Replace' : 'Upload'}</button>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderWizStep3(){
+  const ta = document.getElementById('wizEssay');
+  ta.value = wizDraft.essay;
+  document.getElementById('wizEssayCount').textContent = ta.value.length;
+  ta.oninput = ()=>{ wizDraft.essay = ta.value; document.getElementById('wizEssayCount').textContent = ta.value.length; };
+}
+
+function renderWizStep4(){
+  const target = currentApplyTarget;
+  document.getElementById('wizConsentTarget').textContent = target.name;
+  const requiredNames = (target.record && target.record.documents) || ['Academic Transcript','National ID / Passport'];
+  const docsStatus = requiredNames.map(n=>{
+    const d = vaultDocs.find(x=>x.name===n);
+    return `${n}: ${d && d.status ? '✓ uploaded' : '⚠ missing'}`;
+  }).join(' · ');
+  document.getElementById('wizReviewSummary').innerHTML = `
+    <b>${studentProfile.fullName || '(no name on profile)'}</b> — ${studentProfile.email || '(no email on profile)'}<br/>
+    Applying to: <b>${target.name}</b> (${target.type})<br/>
+    ${target.type==='University' ? 'Program: '+(wizDraft.program||'—') : 'Eligibility confirmed: '+(wizDraft.eligibilityConfirmed?'Yes':'No')}<br/>
+    Documents: ${docsStatus}<br/>
+    Personal statement: ${wizDraft.essay ? wizDraft.essay.slice(0,120)+(wizDraft.essay.length>120?'…':'') : '(empty)'}`;
+  const consentBox = document.getElementById('wizConsent');
+  consentBox.checked = wizDraft.consent;
+  consentBox.onchange = e=>{ wizDraft.consent = e.target.checked; };
+}
+
+document.getElementById('wizBack').addEventListener('click', ()=>{
+  if(wizStep > 1){ wizStep--; renderWizardStep(); }
+});
+
+document.getElementById('wizSaveLater').addEventListener('click', ()=>{
+  saveApplication('Draft');
+  closeApplyModal();
+});
+
+document.getElementById('wizNext').addEventListener('click', ()=>{
+  if(wizStep === 1 && currentApplyTarget.type === 'Scholarship' && !wizDraft.eligibilityConfirmed){
+    alert('Please confirm you meet the eligibility criteria before continuing.');
+    return;
+  }
+  if(wizStep < WIZ_LABELS.length){
+    wizStep++;
+    renderWizardStep();
+    return;
+  }
+  // final step: submit
+  if(!wizDraft.consent){
+    alert('Please consent to sharing your information before submitting.');
+    return;
+  }
+  const id = saveApplication('Submitted');
+  document.getElementById('applySuccessText').textContent =
+    `Your application to "${currentApplyTarget.name}" has been submitted${currentApplyTarget.isPartner ? ' directly to our partner team' : ''}. Track its status any time from the Track page.`;
+  document.getElementById('applyTrackingId').textContent = 'Tracking ID: ' + id;
+  applyWizardView.style.display = 'none';
+  applySuccessView.style.display = 'block';
+});
+
+function saveApplication(status){
+  const id = 'SH-' + Math.random().toString(36).slice(2,8).toUpperCase();
+  myApplications.push({
+    type: currentApplyTarget.type,
+    name: currentApplyTarget.name,
+    status: status,
+    trackingId: id,
+    program: wizDraft.program,
+    submittedAt: new Date().toISOString(),
+    isPartner: currentApplyTarget.isPartner
+  });
+  renderMyApplications();
+  persistAll();
+  return id;
+}
+
+const STATUS_ORDER = ['Draft','Submitted','Under Review','Additional Info Requested','Offer','Waitlist','Rejected'];
+function nextStatus(current){
+  if(current === 'Draft') return 'Submitted';
+  if(current === 'Submitted') return 'Under Review';
+  if(current === 'Under Review') return 'Offer';
+  return current;
+}
+function statusColor(status){
+  if(status==='Offer') return 'var(--green)';
+  if(status==='Rejected') return '#B3261E';
+  if(status==='Waitlist' || status==='Additional Info Requested') return '#B3800B';
+  return 'var(--navy)';
+}
+function advanceStatus(idx){
+  myApplications[idx].status = nextStatus(myApplications[idx].status);
+  renderMyApplications();
+  persistAll();
+}
+function resumeDraft(idx){
+  const app = myApplications[idx];
+  const record = findTargetRecord(app.type, app.name);
+  currentApplyTarget = { type: app.type, name: app.name, record, isPartner: !!(record && record.partner) };
+  wizDraft = { program: app.program || '', eligibilityConfirmed:false, docsRequired:[], essay: studentProfile.bio || '', consent:false };
+  wizStep = 1;
+  applyWizardView.style.display = 'block';
+  applySuccessView.style.display = 'none';
+  applyModal.classList.add('open');
+  renderWizardStep();
+  myApplications.splice(idx,1);
+  renderMyApplications();
+  persistAll();
+}
+
+function renderMyApplications(){
+  const list = document.getElementById('myApplicationsList');
+  if(myApplications.length === 0){
+    list.innerHTML = `<p style="font-size:13.5px; color:var(--muted);">You haven't applied to anything yet — hit "Apply via Scholar Hub" on any scholarship or university card to get started.</p>`;
+    return;
+  }
+  const uniApps = myApplications.map((a,i)=>({...a, idx:i})).filter(a=>a.type==='University');
+  const schApps = myApplications.map((a,i)=>({...a, idx:i})).filter(a=>a.type==='Scholarship');
+
+  function renderGroup(title, apps){
+    if(apps.length===0) return '';
+    return `<p style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); margin:16px 0 8px;">${title}</p>` +
+      apps.map(a => `
+      <div class="tracker-item">
+        <div class="tracker-dot active">•</div>
+        <div style="flex:1;">
+          <p style="font-weight:600; color:var(--navy-deep); font-size:14.5px;">${a.name}${a.isPartner ? ' <span class="badge-partner" style="margin-top:0; display:inline-flex;">★ Partner</span>' : ''}</p>
+          <p style="font-size:12.5px; color:var(--muted); margin-top:2px;">${a.trackingId} · ${new Date(a.submittedAt).toLocaleDateString()}</p>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:11.5px; font-weight:700; color:#fff; background:${statusColor(a.status)}; padding:4px 10px; border-radius:999px;">${a.status}</span>
+          ${a.status==='Draft' ? `<button class="btn btn-outline-dark" style="padding:6px 12px; font-size:12px;" onclick="resumeDraft(${a.idx})">Resume</button>` :
+            (a.status!=='Offer' && a.status!=='Rejected' && !a.external) ? `<button class="btn btn-outline-dark" style="padding:6px 12px; font-size:12px;" onclick="advanceStatus(${a.idx})" title="Demo only — simulates a status update">Simulate update</button>` : ''}
+        </div>
+      </div>`).join('');
+  }
+  list.innerHTML = renderGroup('University applications', uniApps) + renderGroup('Scholarship applications', schApps);
+}
+renderMyApplications();
+
+/* ---------- USSD Simulator ---------- */
+const ussdMenu = {
+  root: {
+    text: "Welcome to Scholar Hub\n1. Check deadlines\n2. Get scholarship match\n3. Set reminder\n0. Exit",
+    options: {
+      "1":"deadlines", "2":"match", "3":"reminder"
+    }
+  },
+  deadlines: { text:"Upcoming deadlines:\nSFAR — Rolling\nBRD Minuza — Rolling\nMastercard Fdn — Varies\n\n0. Back to menu", options:{"0":"root"} },
+  match: { text:"Reply with your field:\n1. Engineering\n2. Business\n3. Medicine", options:{"1":"matchResult","2":"matchResult","3":"matchResult"} },
+  matchResult: { text:"Top match: SFAR Student Loans (Government)\nWorks with your field at most public universities.\n\n0. Back to menu", options:{"0":"root"} },
+  reminder: { text:"Reminder set for your saved deadlines. You'll get an SMS 7 days before each one.\n\n0. Back to menu", options:{"0":"root"} },
+};
+let ussdState = "root";
+function renderUSSD(){
+  const node = ussdMenu[ussdState];
+  document.getElementById('phoneBody').innerHTML = `
+    <div class="phone-line" style="white-space:pre-line;">${node.text}</div>
+    <input class="phone-input" id="ussdInput" placeholder="Reply..." />
+    <button class="phone-btn" id="ussdSend">Send</button>
+  `;
+  document.getElementById('ussdSend').addEventListener('click', ()=>{
+    const val = document.getElementById('ussdInput').value.trim();
+    if(node.options[val]){ ussdState = node.options[val]; }
+    renderUSSD();
+  });
+}
+renderUSSD();
+
+/* ---------- Persistence: backend only, no browser storage of any kind ----------
+   All state (profile, vault, applications, auth) now lives in the database and
+   is read/written through the API. These two functions are kept as harmless
+   no-ops purely so every existing call site (button handlers, logout, etc.)
+   keeps working without needing to be touched individually. */
+function persistAll(){ /* intentionally does nothing — see backend sync below */ }
+function loadPersisted(){ /* intentionally does nothing — session is restored from the backend, not the browser */ }
+
+function updateAuthUI(){
+  const right = document.querySelector('.nav-right');
+  if(!right) return;
+  if(isAuthenticated){
+    right.innerHTML = `<span class="nav-account">Signed in${studentProfile.fullName ? ' · '+studentProfile.fullName.split(' ')[0] : ''}</span>
+      <button class="btn btn-ghost" type="button" id="navProfileBtn">My Profile</button>
+      <button class="btn btn-solid" type="button" id="navLogoutBtn">Log out</button>`;
+    document.getElementById('navProfileBtn').addEventListener('click', ()=>goTo('profile'));
+    document.getElementById('navLogoutBtn').addEventListener('click', ()=>{
+      isAuthenticated = false;
+      authToken = null;
+      location.reload();
+    });
+  }
+}
+// Refresh profile form when opening profile page
+document.querySelectorAll('[data-target="profile"]').forEach(el=>{
+  el.addEventListener('click', ()=> setTimeout(loadProfileToForm, 0));
+});
+loadPersisted();
+
+/* =====================================================
+   BACKEND INTEGRATION (Scholar Hub API)
+   The public catalog (universities/scholarships/mentors) has a built-in
+   fallback so the page still renders if the backend is down. Everything
+   involving a specific user — auth, profile, vault, applications, mentor
+   bookings, payments — is backend-only: no localStorage, sessionStorage,
+   or cookies are used anywhere. Refreshing the page signs you out, on
+   purpose, because there is nothing kept in the browser to restore.
+===================================================== */
+const API_BASE = window.SCHOLAR_HUB_API ||
+  (location.protocol.startsWith('http') ? location.origin + '/api' : 'http://localhost:5000/api');
+// Auth token lives in memory only for this page load — nothing is written to
+// localStorage, sessionStorage, or cookies. Refreshing the page signs you out
+// on purpose; the database is the only place session state is durable.
+let authToken = null;
+
+async function apiFetch(path, options = {}) {
+  const headers = Object.assign({ 'Content-Type': 'application/json' }, options.headers || {});
+  if (authToken) headers['Authorization'] = 'Bearer ' + authToken;
+  const res = await fetch(API_BASE + path, Object.assign({}, options, { headers }));
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error(body.error || ('Request failed: ' + res.status));
+  }
+  return res.json();
+}
+
+function rebuildUniFilters(){
+  uniFilterRow.innerHTML = '';
+  ["All", ...new Set(universities.map(u=>u.country))].forEach((c,i)=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip' + (i===0 ? ' active':'');
+    chip.textContent = c;
+    chip.addEventListener('click', ()=>{
+      document.querySelectorAll('#uniFilters .chip').forEach(ch=>ch.classList.remove('active'));
+      chip.classList.add('active');
+      renderUniversities(c);
+    });
+    uniFilterRow.appendChild(chip);
+  });
+}
+function rebuildScholFilters(){
+  filterRow.innerHTML = '';
+  ["All", ...new Set(scholarships.map(s=>s.category))].forEach((c,i)=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip' + (i===0 ? ' active':'');
+    chip.textContent = c;
+    chip.addEventListener('click', ()=>{
+      document.querySelectorAll('#scholFilters .chip').forEach(ch=>ch.classList.remove('active'));
+      chip.classList.add('active');
+      renderScholarships(c);
+    });
+    filterRow.appendChild(chip);
+  });
+}
+function rebuildApplyDropdown(){
+  applyPageSelect.innerHTML = '<option value="">— Select a university or scholarship —</option>';
+  const uniGroup = document.createElement('optgroup');
+  uniGroup.label = 'Universities';
+  universities.forEach(u=>{
+    const opt = document.createElement('option');
+    opt.value = 'University|' + u.name;
+    opt.textContent = u.name + (u.partner ? ' — Partner' : '');
+    uniGroup.appendChild(opt);
+  });
+  const schGroup = document.createElement('optgroup');
+  schGroup.label = 'Scholarships';
+  scholarships.forEach(s=>{
+    const opt = document.createElement('option');
+    opt.value = 'Scholarship|' + s.name;
+    opt.textContent = s.name + (s.partner ? ' — Partner' : '');
+    schGroup.appendChild(opt);
+  });
+  applyPageSelect.appendChild(uniGroup);
+  applyPageSelect.appendChild(schGroup);
+}
+function renderMentorGrid(){
+  mentorGrid.innerHTML = mentors.map((m,i)=>`
+    <div class="card mentor-card">
+      <div class="mentor-avatar"></div>
+      <div style="flex:1;">
+        <h3 style="font-size:17px;">${m.name}</h3>
+        <p style="font-size:13px; color:var(--muted); margin:4px 0 8px;">${m.role}</p>
+        <p style="font-size:13px; color:var(--ink);">${m.focus}</p>
+        <div class="card-foot" style="margin-top:14px;">
+          <span class="badge badge-verified">✓ Verified</span>
+          <span style="font-size:12.5px; font-weight:600; color:var(--navy-deep);">${m.rate}</span>
+        </div>
+        <button class="btn btn-outline-dark mentor-book" type="button" onclick="bookMentor(${i})">Book free session</button>
+      </div>
+    </div>`).join('');
+}
+
+/* universities / scholarships / mentors were declared with `const` above —
+   we mutate their contents in place (rather than reassigning) so every
+   function that already closes over them keeps working unchanged. */
+async function loadLiveCatalog(){
+  try {
+    const [liveUnis, liveSchs, liveMentors] = await Promise.all([
+      apiFetch('/universities'),
+      apiFetch('/scholarships'),
+      apiFetch('/mentors'),
+    ]);
+    universities.length = 0; universities.push(...liveUnis);
+    scholarships.length = 0; scholarships.push(...liveSchs);
+    mentors.length = 0; mentors.push(...liveMentors);
+
+    rebuildUniFilters();
+    renderUniversities('All');
+    rebuildScholFilters();
+    renderScholarships('All');
+    rebuildApplyDropdown();
+    renderMentorGrid();
+
+    console.log('Scholar Hub: connected to backend at', API_BASE, '— live database data loaded.');
+  } catch (err) {
+    console.log('Scholar Hub: backend not reachable, using built-in demo data instead.', err.message);
+  }
+}
+loadLiveCatalog();
+
+async function restoreBackendSession(){
+  if (!authToken) return;
+  try {
+    const profile = await apiFetch('/profile');
+    Object.assign(studentProfile, {
+      fullName: profile.full_name || studentProfile.fullName,
+      email: profile.email || studentProfile.email,
+      phone: profile.phone || studentProfile.phone,
+      nationality: profile.nationality || studentProfile.nationality,
+      district: profile.district || studentProfile.district,
+      educationLevel: profile.education_level || studentProfile.educationLevel,
+      previousSchool: profile.previous_school || studentProfile.previousSchool,
+      grades: profile.grades || studentProfile.grades,
+      keySubjects: profile.key_subjects || studentProfile.keySubjects,
+      preferredFields: profile.preferred_fields || studentProfile.preferredFields,
+      preferredCountries: profile.preferred_countries || studentProfile.preferredCountries,
+      financialNeed: profile.financial_need || studentProfile.financialNeed,
+      testScores: profile.test_scores || studentProfile.testScores,
+      bio: profile.bio || studentProfile.bio,
+    });
+
+    // Vault and applications come straight from the database — no client cache.
+    vaultDocs = await apiFetch('/vault');
+    const apps = await apiFetch('/applications');
+    myApplications = apps.map(a => ({
+      type: a.type,
+      name: a.name,
+      status: a.status,
+      trackingId: 'SH-' + String(a.id).padStart(6, '0'),
+      submittedAt: a.createdAt,
+    }));
+
+    isAuthenticated = true;
+    loadProfileToForm();
+    renderVault();
+    renderMyApplications();
+    updateAuthUI();
+  } catch (err) {
+    authToken = null;
+    console.log('Scholar Hub: session restore failed —', err.message);
+  }
+}
+
+/* ---- Profile: sync save to backend when signed in ---- */
+document.getElementById('pfSaveBtn').addEventListener('click', async ()=>{
+  if (!authToken) return;
+  try {
+    await apiFetch('/profile', { method:'PUT', body: JSON.stringify({
+      full_name: studentProfile.fullName,
+      phone: studentProfile.phone,
+      nationality: studentProfile.nationality,
+      district: studentProfile.district,
+      education_level: studentProfile.educationLevel,
+      previous_school: studentProfile.previousSchool,
+      grades: studentProfile.grades,
+      key_subjects: studentProfile.keySubjects,
+      preferred_fields: studentProfile.preferredFields,
+      preferred_countries: studentProfile.preferredCountries,
+      financial_need: studentProfile.financialNeed,
+      test_scores: studentProfile.testScores,
+      bio: studentProfile.bio,
+    })});
+  } catch (err) {
+    console.log('Scholar Hub: profile backend sync skipped —', err.message);
+  }
+});
+
+/* ---- Vault: sync uploads to backend, keep the original local behavior ---- */
+const originalToggleVault = toggleVault;
+toggleVault = function(i){
+  originalToggleVault(i);
+  if (!authToken) return;
+  const doc = vaultDocs[i];
+  apiFetch('/vault', { method:'PUT', body: JSON.stringify({ documentName: doc.name }) })
+    .catch(err => console.log('Scholar Hub: vault backend sync skipped —', err.message));
+};
+
+/* ---- Applications: sync submissions to backend, keep the original local tracker ---- */
+const originalSaveApplication = saveApplication;
+saveApplication = function(status){
+  const id = originalSaveApplication(status);
+  if (authToken && currentApplyTarget) {
+    apiFetch('/applications', { method:'POST', body: JSON.stringify({
+      type: currentApplyTarget.type,
+      name: currentApplyTarget.name,
+      status: status,
+    })}).catch(err => console.log('Scholar Hub: application backend sync skipped —', err.message));
+  }
+  return id;
+};
+
+/* ---- Mentor bookings: sync to backend, keep the original confirmation alert ---- */
+const originalBookMentor = bookMentor;
+bookMentor = function(i){
+  originalBookMentor(i);
+  if (!authToken) return;
+  const m = mentors[i];
+  apiFetch('/mentor-bookings', { method:'POST', body: JSON.stringify({ mentorName: m.name }) })
+    .catch(err => console.log('Scholar Hub: mentor booking backend sync skipped —', err.message));
+};
+
+/* ---- Payment ----
+   selectPaymentMethod() and processProfessionalPayment() were referenced by
+   onclick= handlers in the payment section markup but were never actually
+   defined anywhere in the original file, so the Pay button did nothing.
+   Defined here, wired to the backend. Only amount/currency/method are ever
+   sent — the card number and CVV fields are never read or transmitted. */
+function selectPaymentMethod(btn, method){
+  document.querySelectorAll('.payment-method').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('cardPaymentFields').style.display = method === 'card' ? 'block' : 'none';
+  document.getElementById('mobilePaymentFields').style.display = method === 'mobile' ? 'block' : 'none';
+}
+async function processProfessionalPayment(){
+  if (!authToken) {
+    alert('Please log in before completing payment.');
+    goTo('login');
+    return;
+  }
+  const activeBtn = document.querySelector('.payment-method.active');
+  const method = activeBtn && activeBtn.textContent.includes('Mobile') ? 'Mobile Money' : 'Card';
+  try {
+    await apiFetch('/payments', { method:'POST', body: JSON.stringify({ amount: 10, currency: 'USD', method }) });
+    alert('Payment recorded. Thank you!');
+  } catch (err) {
+    alert('Payment could not be recorded: ' + err.message);
+  }
+}
+</script>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<style>
+  /* ---- Footer polish: uses the site's existing --navy/--gold/--green/--cream
+       variables, so it inherits the brand automatically. ---- */
+  .site-footer { position: relative; overflow: hidden; }
+  .site-footer::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--green) 50%, var(--gold) 100%);
+  }
+  .footer-tagline { font-size: 13px; color: #94A1B0; margin: 4px 0 22px; line-height: 1.6; }
+
+  .footer-social { gap: 10px; }
+  .site-footer .social-link {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; transition: background .15s ease, border-color .15s ease, transform .15s ease;
+  }
+  .site-footer .social-link svg { width: 16px; height: 16px; fill: currentColor; }
+  .site-footer .social-link:hover { background: var(--gold); border-color: var(--gold); color: var(--navy-deep); transform: translateY(-2px); }
+
+  .site-footer .footer-column h3 {
+    font-size: 12.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    color: #7C8A9A; margin-bottom: 16px;
+  }
+  .site-footer .footer-links a {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: #C7CFD9; transition: color .15s ease, transform .15s ease;
+  }
+  .site-footer .footer-links a:hover { color: #fff; transform: translateX(2px); }
+  .site-footer .footer-links a::before {
+    content: "›"; color: var(--gold); font-weight: 700; opacity: 0; width: 0;
+    transition: opacity .15s ease, width .15s ease;
+  }
+  .site-footer .footer-links a:hover::before { opacity: 1; width: 10px; }
+
+  .footer-contact-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .footer-contact-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: #C7CFD9; }
+  .footer-contact-list svg { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; fill: none; stroke: var(--gold); stroke-width: 2; }
+  .footer-contact-list a { color: #C7CFD9; transition: color .15s ease; }
+  .footer-contact-list a:hover { color: #fff; }
+
+  .site-footer .footer-bottom { align-items: center; }
+  .footer-made-with { font-size: 12px; color: #6B7889; }
+  .footer-bottom-links a { transition: color .15s ease; }
+  .footer-bottom-links a:hover { color: #fff; }
+</style>
+
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <div class="footer-main">
+
+      <!-- BRAND -->
+      <div class="footer-brand">
+
+        <div class="footer-brand-title">
+          <div class="footer-brand-mark"></div>
+          Scholar Hub
+        </div>
+
+        <p class="footer-tagline">
+          Every scholarship and university opportunity available to
+          Rwandan and East African students — in one place, matched
+          to who you are and verified so you can trust it.
+        </p>
+
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.9 2H22l-7.6 8.6L23.3 22h-7.2l-5.6-6.9L4 22H1l8.1-9.2L1 2h7.4l5.1 6.4L18.9 2Zm-1.3 18h1.8L7.5 4h-2l12.1 16Z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21H9z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.1 0 4.1.06 1.1.05 1.8.2 2.4.45.7.27 1.2.6 1.7 1.1s.9 1 1.1 1.7c.24.62.4 1.35.45 2.4C21.94 8.9 22 9.3 22 12s0 3.1-.06 4.1c-.05 1.1-.2 1.8-.45 2.4a4.6 4.6 0 0 1-1.1 1.7 4.6 4.6 0 0 1-1.7 1.1c-.62.24-1.35.4-2.4.45-1 .06-1.4.06-4.1.06s-3.1 0-4.1-.06c-1.1-.05-1.8-.2-2.4-.45a4.6 4.6 0 0 1-1.7-1.1 4.6 4.6 0 0 1-1.1-1.7c-.24-.62-.4-1.35-.45-2.4C2.06 15.1 2 14.7 2 12s0-3.1.06-4.1c.05-1.1.2-1.8.45-2.4.24-.62.58-1.2 1.1-1.7A4.6 4.6 0 0 1 5.3 2.7c.62-.24 1.35-.4 2.4-.45C8.9 2.06 9.3 2 12 2Zm0 2.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2Zm0 8.4a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6Zm5.3-8.6a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+
+      <!-- EXPLORE -->
+      <div class="footer-column">
+
+        <h3>Explore</h3>
+
+        <ul class="footer-links">
+          <li>
+            <a data-target="home">Home</a>
+          </li>
+
+          <li>
+            <a data-target="universities">Find Universities</a>
+          </li>
+
+          <li>
+            <a data-target="scholarships">Scholarships</a>
+          </li>
+
+          <li>
+            <a data-target="mentors">Mentors</a>
+          </li>
+
+          <li>
+            <a data-target="about">About Us</a>
+          </li>
+        </ul>
+
+      </div>
+
+
+      <!-- TOOLS -->
+      <div class="footer-column">
+
+        <h3>Student Tools</h3>
+
+        <ul class="footer-links">
+
+          <li>
+            <a data-target="vault">Document Vault</a>
+          </li>
+
+          <li>
+            <a data-target="track">Application Tracker</a>
+          </li>
+
+          <li>
+            <a data-target="#scholarships">Match Scholarships</a>
+          </li>
+
+          <li>
+            <a data-target="#sign Up">Create Account</a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <!-- CONTACT -->
+      <div class="footer-column footer-contact">
+
+        <h3>Contact Us</h3>
+
+        <ul class="footer-contact-list">
+          <li>
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg>
+            <a href="tel:+250790142174">+250 790 142 174</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16v16H4Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m4 6 8 7 8-7"/></svg>
+            <a href="mailto:hello@scholarhub.rw">hello@scholarhub.rw</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-6.5 7-11.5a7 7 0 1 0-14 0C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
+            <span>Kigali, Rwanda</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z"/></svg>
+            <span>Serving Rwanda &amp; East Africa</span>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <!-- BOTTOM -->
+    <div class="footer-bottom">
+
+      <p>© 2026 Scholar Hub. All rights reserved. <span class="footer-made-with">· Built for Rwanda &amp; East Africa</span></p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Help Center</a>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+
+</body>
+</html>
