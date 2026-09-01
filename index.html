@@ -478,8 +478,26 @@ function goTo(target){
   document.querySelectorAll('.nav-links li').forEach(li=>li.classList.toggle('current', li.dataset.target===target));
   window.scrollTo({top:0, behavior:'smooth'});
 }
-document.querySelectorAll('[data-target]').forEach(el=>{
-  el.addEventListener('click', ()=>goTo(el.dataset.target));
+// Use event delegation so navigation links added later (including footer links)
+// also work. The footer is rendered after this script in the HTML.
+document.addEventListener('click', (event)=>{
+  const el = event.target.closest('[data-target]');
+  if(!el) return;
+
+  const target = el.dataset.target;
+  if(!target) return;
+
+  event.preventDefault();
+
+  // Support links that should open the Sign Up tab.
+  if(target === 'login' && el.dataset.form === 'signup'){
+    goTo('login');
+    const signupTab = document.querySelector('.form-tab[data-form="signup"]');
+    if(signupTab) signupTab.click();
+    return;
+  }
+
+  goTo(target);
 });
 
 /* ---------- Login form tabs ---------- */
@@ -1594,23 +1612,23 @@ async function processProfessionalPayment(){
 
         <ul class="footer-links">
           <li>
-            <a data-target="home">Home</a>
+            <a href="#" data-target="home">Home</a>
           </li>
 
           <li>
-            <a data-target="universities">Find Universities</a>
+            <a href="#" data-target="universities">Find Universities</a>
           </li>
 
           <li>
-            <a data-target="scholarships">Scholarships</a>
+            <a href="#" data-target="scholarships">Scholarships</a>
           </li>
 
           <li>
-            <a data-target="mentors">Mentors</a>
+            <a href="#" data-target="mentors">Mentors</a>
           </li>
 
           <li>
-            <a data-target="about">About Us</a>
+            <a href="#" data-target="about">About Us</a>
           </li>
         </ul>
 
@@ -1625,19 +1643,19 @@ async function processProfessionalPayment(){
         <ul class="footer-links">
 
           <li>
-            <a data-target="vault">Document Vault</a>
+            <a href="#" data-target="vault">Document Vault</a>
           </li>
 
           <li>
-            <a data-target="track">Application Tracker</a>
+            <a href="#" data-target="track">Application Tracker</a>
           </li>
 
           <li>
-            <a data-target="#scholarships">Match Scholarships</a>
+            <a href="#" data-target="scholarships">Match Scholarships</a>
           </li>
 
           <li>
-            <a data-target="#sign Up">Create Account</a>
+            <a href="#" data-target="login" data-form="signup">Create Account</a>
           </li>
 
         </ul>
